@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JavaScript Box Position Shift Animation</title>
+<style>
+    .box {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: left 1s ease-in-out;
+    }
+</style>
+</head>
+<body>
+<button onclick="shiftBox()">Shift Box</button>
+<div class="box"></div>
+<script>
+    function shiftBox() {
+        var box = document.querySelector('.box');
+        var currentLeft = parseFloat(getComputedStyle(box).left);
+        var newLeft = currentLeft + 100; // Shift the box by 100px to the right
+        box.style.left = newLeft + 'px';
+    }
+</script>
+</body>
+</html>

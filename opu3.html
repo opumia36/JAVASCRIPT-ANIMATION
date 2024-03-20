@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JavaScript Box Animation</title>
+<style>
+    .container {
+        position: relative;
+        width: 400px;
+        height: 200px;
+        border: 1px solid black;
+    }
+
+    .box {
+        width: 50px;
+        height: 50px;
+        background-color: blue;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transition: left 2s ease-in-out;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="box"></div>
+</div>
+<button onclick="moveBox()">Move Box</button>
+<script>
+    function moveBox() {
+        var box = document.querySelector('.box');
+        var containerWidth = document.querySelector('.container').offsetWidth;
+        var boxWidth = box.offsetWidth;
+        var currentPosition = parseFloat(getComputedStyle(box).left);
+        var newPosition = containerWidth - boxWidth;
+
+        // Reset position if the box is already at the end
+        if (currentPosition >= newPosition) {
+            box.style.left = '0';
+        } else {
+            box.style.left = newPosition + 'px';
+        }
+    }
+</script>
+</body>
+</html>

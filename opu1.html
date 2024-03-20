@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Animation with JavaScript Control</title>
+<style>
+    .box {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: moveBox 2s infinite alternate;
+    }
+
+    @keyframes moveBox {
+        from { transform: translate(-50%, -50%) rotate(0deg); }
+        to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+</style>
+</head>
+<body>
+<button onclick="toggleAnimation()">Toggle Animation</button>
+<div class="box"></div>
+<script>
+    var animationPaused = false;
+    
+    function toggleAnimation() {
+        var box = document.querySelector('.box');
+        if (animationPaused) {
+            box.style.animationPlayState = 'running';
+            animationPaused = false;
+        } else {
+            box.style.animationPlayState = 'paused';
+            animationPaused = true;
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multiple JavaScript Animations</title>
+<style>
+    /* Animation 1 */
+    .circle {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        border-radius: 50%;
+        position: relative;
+        animation: moveCircle 2s infinite alternate;
+    }
+
+    @keyframes moveCircle {
+        from { left: 0; }
+        to { left: calc(100% - 100px); }
+    }
+
+    /* Animation 2 */
+    .square {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        position: relative;
+        animation: rotateSquare 2s infinite linear;
+    }
+
+    @keyframes rotateSquare {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+
+    /* Animation 3 */
+    .triangle {
+        width: 0;
+        height: 0;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-bottom: 100px solid green;
+        position: relative;
+        animation: bounceTriangle 2s infinite;
+    }
+
+    @keyframes bounceTriangle {
+        0%, 100% { bottom: 0; }
+        50% { bottom: 100px; }
+    }
+
+    /* Animation 4 */
+    .rectangle {
+        width: 200px;
+        height: 100px;
+        background-color: yellow;
+        position: relative;
+        animation: colorChange 2s infinite alternate;
+    }
+
+    @keyframes colorChange {
+        from { background-color: yellow; }
+        to { background-color: orange; }
+    }
+</style>
+</head>
+<body>
+<div class="circle"></div>
+<div class="square"></div>
+<div class="triangle"></div>
+<div class="rectangle"></div>
+</body>
+</html>
